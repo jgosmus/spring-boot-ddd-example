@@ -9,7 +9,7 @@ import java.util.Map;
 @RestController
 public final class HealthCheckGetController {
 
-    @GetMapping("/health-check")
+    @GetMapping("health-check")
     public Map<String, String> index() {
         HashMap<String, String> status = new HashMap<>();
         status.put("application", "todo_backend");
