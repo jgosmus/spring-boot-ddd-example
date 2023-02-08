@@ -75,5 +75,5 @@ sourceSets {
 }
 
 dependencies {
-    implementation project(':todo')
+    implementation project(':todolist')
 }

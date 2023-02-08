@@ -7,11 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan( value = {"com.facespedes.todo", "com.facespedes.apps" })
-@EnableJpaRepositories(basePackages = {"com.facespedes.todo" })
-@EntityScan(basePackages = {"com.facespedes.todo"})
+@ComponentScan(value = {"com.facespedes.todolist", "com.facespedes.apps" })
+@EnableJpaRepositories(basePackages = {"com.facespedes.todolist"})
+@EntityScan(basePackages = {"com.facespedes.todolist"})
 public class Starter {
-
     public static void main(String[] args) {
         SpringApplication.run(Starter.class, args);
     }

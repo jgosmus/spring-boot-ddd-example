@@ -1,5 +1,4 @@
 rootProject.name = 'spring-boot-ddd-example'
 
-include ":todo"
-project(':todo').projectDir = new File('src/todo')
-
+include ":todolist"
+project(':todolist').projectDir = new File('src/todolist')
