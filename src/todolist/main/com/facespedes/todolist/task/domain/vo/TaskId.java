@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public final class TaskId extends IdentifierValueObject {
 
-        public TaskId(String value) {
-            super(value);
-        }
+    public TaskId(String value) {
+        super(value);
+    }
 }

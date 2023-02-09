@@ -18,13 +18,14 @@ public class UserCreator {
     private final UserRepository userRepository;
     private final EventBus eventBus;
 
-    public void create(String id, String email, String password) {
-        Optional<User> optionalUser = new DomainUserFinder(userRepository).findUser(new UserId(id));
-        if (optionalUser.isPresent()) {
-            throw new RuntimeException("User already exists");
-        }
 
+    public void create(String id, String email, String password) {
         UserId userId = new UserId(id);
+        Optional<User> optionalUser = new DomainUserFinder(userRepository).findUser(userId);
+        optionalUser.ifPresent(user -> {
+            throw new RuntimeException("User already exists");
+        });
+
         UserEmail userEmail = new UserEmail(email);
         UserPassword userPassword = new UserPassword(password);
         User user = new User(userId, userEmail, userPassword);

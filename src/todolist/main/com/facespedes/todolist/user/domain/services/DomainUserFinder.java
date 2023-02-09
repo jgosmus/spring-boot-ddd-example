@@ -6,8 +6,8 @@ import com.facespedes.todolist.shared.domain.UserId;
 
 import java.util.Optional;
 
-public class DomainUserFinder {
-    private UserRepository userRepository;
+public final class DomainUserFinder {
+    private final UserRepository userRepository;
 
     public DomainUserFinder(UserRepository userRepository) {
         this.userRepository = userRepository;

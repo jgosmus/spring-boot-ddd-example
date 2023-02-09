@@ -1,6 +1,5 @@
 package com.facespedes.todolist.shared.domain;
 
-import com.facespedes.todolist.shared.domain.IdentifierValueObject;
 import jakarta.persistence.Embeddable;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
