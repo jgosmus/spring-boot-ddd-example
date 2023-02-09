@@ -1,4 +1,4 @@
-package com.facespedes.todolist.user.infrastructure;
+package com.facespedes.todolist.user.infrastructure.adapters;
 
 import com.facespedes.todolist.shared.domain.Service;
 import com.facespedes.todolist.user.domain.ports.MessageSender;
