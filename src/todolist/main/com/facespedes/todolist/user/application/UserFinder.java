@@ -3,7 +3,7 @@ package com.facespedes.todolist.user.application;
 import com.facespedes.todolist.shared.domain.Service;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import com.facespedes.todolist.user.domain.User;
-import com.facespedes.todolist.user.domain.vo.UserId;
+import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.UserRepository;
 
 @Service

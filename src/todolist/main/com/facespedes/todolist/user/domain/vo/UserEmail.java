@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public final class UserEmail extends StringValueObject {
-    @JsonValue
+
     private String email;
 
     public UserEmail(String email) {

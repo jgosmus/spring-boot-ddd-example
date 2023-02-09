@@ -4,7 +4,7 @@ package com.facespedes.todolist.user.domain;
 import com.facespedes.todolist.shared.domain.AggregateRoot;
 import com.facespedes.todolist.user.domain.events.UserCreatedDomainEvent;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
-import com.facespedes.todolist.user.domain.vo.UserId;
+import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "users")
 @Entity
 public final class User extends AggregateRoot {
+
     @EmbeddedId
     private UserId id;
 

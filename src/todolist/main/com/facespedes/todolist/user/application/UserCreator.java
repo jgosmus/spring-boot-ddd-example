@@ -5,7 +5,7 @@ import com.facespedes.todolist.shared.domain.bus.event.EventBus;
 import com.facespedes.todolist.user.domain.*;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
-import com.facespedes.todolist.user.domain.vo.UserId;
+import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
 import lombok.AllArgsConstructor;
 
