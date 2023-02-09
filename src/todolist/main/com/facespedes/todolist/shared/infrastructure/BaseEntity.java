@@ -4,15 +4,16 @@ import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Transient;
+import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.domain.Persistable;
 
 import java.time.LocalDateTime;
 
+@Getter
 @MappedSuperclass
 public abstract class BaseEntity implements Persistable<String> {
-
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -27,7 +28,6 @@ public abstract class BaseEntity implements Persistable<String> {
     public boolean isNew() {
         return isNew;
     }
-
 
     @PrePersist
     @PostLoad
