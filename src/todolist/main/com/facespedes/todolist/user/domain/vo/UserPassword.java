@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 public final class UserPassword extends StringValueObject {
+
     private String password;
 
     public UserPassword(String password) {
