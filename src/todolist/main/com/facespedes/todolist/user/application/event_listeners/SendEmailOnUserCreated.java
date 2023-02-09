@@ -1,13 +1,15 @@
-package com.facespedes.todolist.user.application;
+package com.facespedes.todolist.user.application.event_listeners;
 
 import com.facespedes.todolist.shared.domain.Service;
+import com.facespedes.todolist.user.application.use_cases.EmailSender;
 import com.facespedes.todolist.user.domain.events.UserCreatedDomainEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.context.event.EventListener;
 
 @AllArgsConstructor
 @Service
-public class SendEmailOnUserCreated {
+public final class SendEmailOnUserCreated {
+
     private final EmailSender emailSender;
 
 

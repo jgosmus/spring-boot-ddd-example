@@ -4,14 +4,14 @@ import com.facespedes.todolist.shared.domain.bus.event.DomainEvent;
 import lombok.Getter;
 
 @Getter
-public class TaskCreatedDomainEvent extends DomainEvent {
+public class TaskCompletedDomainEvent extends DomainEvent {
 
     private String description;
     private String status;
     private String userId;
 
 
-    public TaskCreatedDomainEvent(String id, String description, String status, String userId) {
+    public TaskCompletedDomainEvent(String id, String description, String status, String userId) {
         super(id);
         this.description = description;
         this.status = status;

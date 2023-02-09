@@ -1,7 +1,7 @@
 package com.facespedes.apps.todo.backend.controllers.user_get_controller;
 
-import com.facespedes.todolist.user.application.UserFinder;
-import com.facespedes.todolist.user.application.UserFinderResponse;
+import com.facespedes.todolist.user.application.use_cases.UserFinder;
+import com.facespedes.todolist.user.application.dto.UserFinderResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

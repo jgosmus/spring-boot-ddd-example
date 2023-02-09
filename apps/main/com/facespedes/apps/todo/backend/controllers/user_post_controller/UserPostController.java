@@ -1,6 +1,6 @@
 package com.facespedes.apps.todo.backend.controllers.user_post_controller;
 
-import com.facespedes.todolist.user.application.UserCreator;
+import com.facespedes.todolist.user.application.use_cases.UserCreator;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;

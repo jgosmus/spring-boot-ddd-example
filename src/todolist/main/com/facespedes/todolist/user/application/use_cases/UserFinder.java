@@ -1,6 +1,7 @@
-package com.facespedes.todolist.user.application;
+package com.facespedes.todolist.user.application.use_cases;
 
 import com.facespedes.todolist.shared.domain.Service;
+import com.facespedes.todolist.user.application.dto.UserFinderResponse;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import com.facespedes.todolist.user.domain.User;
 import com.facespedes.todolist.shared.domain.UserId;
