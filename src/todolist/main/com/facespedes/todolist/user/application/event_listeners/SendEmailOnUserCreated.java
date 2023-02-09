@@ -16,6 +16,6 @@ public final class SendEmailOnUserCreated {
     @EventListener
     public void sendEmail(UserCreatedDomainEvent event) {
         System.out.println("Event received: " + event);
-        emailSender.sendEmail(event.getEmail(), "Thanks for creating an account!");
+        emailSender.sendEmail(event.getEmail(), "Thanks!", "Thanks for creating an account!");
     }
 }
