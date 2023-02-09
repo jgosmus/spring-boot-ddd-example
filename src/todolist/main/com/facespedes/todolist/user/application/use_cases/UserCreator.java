@@ -29,7 +29,7 @@ public class UserCreator {
 
         UserEmail userEmail = new UserEmail(email);
         UserPassword userPassword = new UserPassword(password);
-        User user = new User(userId, userEmail, userPassword);
+        User user = User.create(userId, userEmail, userPassword);
         userRepository.save(user);
         eventBus.publish(user.pullDomainEvents());
     }

@@ -30,13 +30,15 @@ public final class User extends AggregateRoot {
     @Embedded
     private UserNumberTasks numberOfTasks;
 
-    public User(UserId id, UserEmail email, UserPassword password) {
-        this.id = id;
-        this.email = email;
-        this.password = password;
-        this.numberOfTasks = new UserNumberTasks(0);
+    public static User create(UserId id, UserEmail email, UserPassword password) {
+        User user = new User();
+        user.id = id;
+        user.email = email;
+        user.password = password;
+        user.numberOfTasks = new UserNumberTasks(0);
 
-        this.record(new UserCreatedDomainEvent(id.value(), email.value()));
+        user.record(new UserCreatedDomainEvent(id.value(), email.value()));
+        return user;
     }
 
     @Override
