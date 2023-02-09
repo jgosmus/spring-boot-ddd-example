@@ -1,6 +1,6 @@
 package com.facespedes.apps.todo.backend.controllers.task_post_controller;
 
-import com.facespedes.todolist.task.application.TaskCreator;
+import com.facespedes.todolist.task.application.use_cases.TaskCreator;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

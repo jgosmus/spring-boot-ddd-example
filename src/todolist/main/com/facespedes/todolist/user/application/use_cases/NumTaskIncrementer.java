@@ -2,8 +2,8 @@ package com.facespedes.todolist.user.application.use_cases;
 
 import com.facespedes.todolist.shared.domain.Service;
 import com.facespedes.todolist.shared.domain.UserId;
-import com.facespedes.todolist.user.domain.User;
-import com.facespedes.todolist.user.domain.UserRepository;
+import com.facespedes.todolist.user.domain.aggregate.User;
+import com.facespedes.todolist.user.domain.ports.UserRepository;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import lombok.AllArgsConstructor;
 

@@ -1,4 +1,4 @@
-package com.facespedes.todolist.task.domain;
+package com.facespedes.todolist.task.domain.aggregate;
 
 import com.facespedes.todolist.shared.domain.AggregateRoot;
 import com.facespedes.todolist.shared.domain.UserId;

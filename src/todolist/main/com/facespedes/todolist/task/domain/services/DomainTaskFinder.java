@@ -1,7 +1,7 @@
 package com.facespedes.todolist.task.domain.services;
 
-import com.facespedes.todolist.task.domain.Task;
-import com.facespedes.todolist.task.domain.TaskRepository;
+import com.facespedes.todolist.task.domain.aggregate.Task;
+import com.facespedes.todolist.task.domain.ports.TaskRepository;
 import com.facespedes.todolist.task.domain.vo.TaskId;
 
 import java.util.Optional;

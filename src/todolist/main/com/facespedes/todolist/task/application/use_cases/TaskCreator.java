@@ -1,13 +1,13 @@
-package com.facespedes.todolist.task.application;
+package com.facespedes.todolist.task.application.use_cases;
 
 import com.facespedes.todolist.shared.domain.Service;
 import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.shared.domain.bus.event.EventBus;
-import com.facespedes.todolist.task.domain.Task;
-import com.facespedes.todolist.task.domain.TaskRepository;
+import com.facespedes.todolist.task.domain.aggregate.Task;
+import com.facespedes.todolist.task.domain.ports.TaskRepository;
 import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
-import com.facespedes.todolist.user.domain.UserRepository;
+import com.facespedes.todolist.user.domain.ports.UserRepository;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import lombok.AllArgsConstructor;
 
