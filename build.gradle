@@ -35,6 +35,10 @@ allprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.26'
     }
 
+
+    tasks.named('test', Test) {
+        useJUnitPlatform()
+    }
 }
 
 subprojects {
@@ -60,8 +64,9 @@ subprojects {
         enabled = true
     }
 
-    tasks.named('test', Test) {
-        useJUnitPlatform()
+
+    tasks.register('unitTest') {
+        dependsOn test
     }
 }
 
@@ -80,4 +85,8 @@ sourceSets {
 
 dependencies {
     implementation project(':todolist')
+}
+
+tasks.register('acceptanceTest') {
+    dependsOn test
 }
