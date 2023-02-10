@@ -1,5 +1,6 @@
 package com.facespedes.todolist.shared.infrastructure;
 
+import com.facespedes.todolist.shared.domain.IdentifierValueObject;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.PostLoad;
 import jakarta.persistence.PrePersist;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @MappedSuperclass
-public abstract class BaseEntity implements Persistable<String> {
+public abstract class BaseEntity implements Persistable<IdentifierValueObject> {
 
     @CreationTimestamp
     private LocalDateTime createdAt;

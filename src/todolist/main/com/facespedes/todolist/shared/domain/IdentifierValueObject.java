@@ -1,6 +1,5 @@
 package com.facespedes.todolist.shared.domain;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import jakarta.persistence.MappedSuperclass;
 
 import java.io.Serializable;

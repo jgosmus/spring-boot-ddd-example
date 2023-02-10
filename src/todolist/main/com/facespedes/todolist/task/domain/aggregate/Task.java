@@ -47,8 +47,8 @@ public class Task extends AggregateRoot {
     }
 
     @Override
-    public String getId() {
-        return id.value();
+    public TaskId getId() {
+        return id;
     }
 
     public String getDescription() {

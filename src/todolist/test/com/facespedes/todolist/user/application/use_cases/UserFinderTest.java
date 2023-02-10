@@ -17,6 +17,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.atLeastOnce;
@@ -34,11 +35,11 @@ class UserFinderTest extends UnitTestCase {
     void shouldReturnUserFinderResponse_WhenUserExists() {
         User user = UserMother.random();
         UserFinderResponse expectedResponse = UserFinderResponseMother.fromUser(user);
-        given(userRepository.findById(new UserId(user.getId()))).willReturn(Optional.of(user));
+        given(userRepository.findById(user.getId())).willReturn(Optional.of(user));
 
-        UserFinderResponse userFinderResponse = userFinder.findUser(user.getId());
+        UserFinderResponse userFinderResponse = userFinder.findUser(user.getId().value());
 
-        verify(userRepository, atLeastOnce()).findById(new UserId(user.getId()));
+        verify(userRepository, atLeastOnce()).findById(new UserId(user.getId().value()));
         assertThat(expectedResponse).isEqualTo(userFinderResponse);
     }
 

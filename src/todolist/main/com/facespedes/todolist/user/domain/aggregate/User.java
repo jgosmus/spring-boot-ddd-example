@@ -2,18 +2,18 @@ package com.facespedes.todolist.user.domain.aggregate;
 
 
 import com.facespedes.todolist.shared.domain.AggregateRoot;
+import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.events.UserCreatedDomainEvent;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
-import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.vo.UserNumberTasks;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
-import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+import java.util.Objects;
+
 @Table(name = "users")
 @Entity
 public final class User extends AggregateRoot {
@@ -31,6 +31,9 @@ public final class User extends AggregateRoot {
     private UserNumberTasks numberOfTasks;
 
     public static User create(UserId id, UserEmail email, UserPassword password) {
+        Objects.requireNonNull(id);
+        Objects.requireNonNull(email);
+        Objects.requireNonNull(password);
         User user = new User();
         user.id = id;
         user.email = email;
@@ -42,8 +45,8 @@ public final class User extends AggregateRoot {
     }
 
     @Override
-    public String getId() {
-        return id.value();
+    public UserId getId() {
+        return id;
     }
 
     public String getEmail() {
@@ -60,5 +63,9 @@ public final class User extends AggregateRoot {
 
     public void incrementNumberOfTasks() {
         this.numberOfTasks = new UserNumberTasks(this.numberOfTasks.value() + 1);
+    }
+
+    public User() {
+        this.id = new UserId();
     }
 }

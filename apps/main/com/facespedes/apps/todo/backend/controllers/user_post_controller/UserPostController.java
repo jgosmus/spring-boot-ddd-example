@@ -19,9 +19,9 @@ public final class UserPostController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("user")
     public void createUser(@RequestBody UserPostRequest userPostRequest) {
-        userCreator.create(UUID.randomUUID().toString(), userPostRequest.email(), userPostRequest.password());
+        userCreator.create(userPostRequest.id(), userPostRequest.email(), userPostRequest.password());
     }
 }
 
-record UserPostRequest(String email, String password) {
+record UserPostRequest(String id, String email, String password) {
 }

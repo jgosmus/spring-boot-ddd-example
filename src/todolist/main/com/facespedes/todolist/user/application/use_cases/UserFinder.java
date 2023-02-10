@@ -20,6 +20,6 @@ public class UserFinder {
     public UserFinderResponse findUser(String id) {
         UserId userId = new UserId(id);
         User user = domainUserFinder.findUser(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
-        return new UserFinderResponse(user.getId(), user.getEmail());
+        return new UserFinderResponse(user.getId().value(), user.getEmail());
     }
 }

@@ -1,6 +1,8 @@
 package com.facespedes.todolist.user.domain.exceptions;
 
-public class UserNotFoundException extends RuntimeException {
+import com.facespedes.todolist.shared.domain.NotFoundException;
+
+public class UserNotFoundException extends NotFoundException {
     public UserNotFoundException(String message) {
         super(message);
     }
