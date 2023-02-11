@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Map;
 import java.util.UUID;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 class UserGetControllerTest extends AcceptanceTestCase {
 
     @Test
@@ -17,6 +19,7 @@ class UserGetControllerTest extends AcceptanceTestCase {
         givenThereIsAUser(userId, email, password);
 
         assertRequest("GET", "/user/" + userId, 200);
+        fail();
     }
 
     @Test
