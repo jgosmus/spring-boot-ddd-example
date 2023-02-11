@@ -9,6 +9,7 @@ import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @NoArgsConstructor
 @Table(name = "tasks")

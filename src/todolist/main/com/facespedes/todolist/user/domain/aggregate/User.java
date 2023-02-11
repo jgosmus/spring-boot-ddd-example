@@ -7,10 +7,7 @@ import com.facespedes.todolist.user.domain.events.UserCreatedDomainEvent;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
 import com.facespedes.todolist.user.domain.vo.UserNumberTasks;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
-import jakarta.persistence.Embedded;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -18,6 +15,7 @@ import java.util.Objects;
 @Entity
 public final class User extends AggregateRoot {
 
+    @Column(length = 36)
     @EmbeddedId
     private UserId id;
 
