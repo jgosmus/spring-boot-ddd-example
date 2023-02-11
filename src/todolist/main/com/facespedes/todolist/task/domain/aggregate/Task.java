@@ -9,7 +9,6 @@ import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
-import org.hibernate.validator.constraints.Length;
 
 @NoArgsConstructor
 @Table(name = "tasks")
@@ -45,6 +44,10 @@ public class Task extends AggregateRoot {
     public void done() {
         this.status = TaskStatus.COMPLETED;
         this.record(new TaskCompletedDomainEvent(id.value(), description.value(), status.toString(), userId.value()));
+    }
+
+    public boolean isDone() {
+        return this.status == TaskStatus.COMPLETED;
     }
 
     @Override

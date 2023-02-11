@@ -19,6 +19,7 @@ public abstract class AggregateRoot extends BaseEntity {
 
     protected final void record(DomainEvent event) {
         domainEvents.add(event);
+        System.out.println("recorded event: " + event);
     }
 
 }

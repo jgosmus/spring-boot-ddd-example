@@ -63,6 +63,10 @@ public final class User extends AggregateRoot {
         this.numberOfTasks = new UserNumberTasks(this.numberOfTasks.value() + 1);
     }
 
+    public void decrementNumberOfTasks() {
+        this.numberOfTasks = new UserNumberTasks(this.numberOfTasks.value() - 1);
+    }
+
     public User() {
         this.id = new UserId();
     }

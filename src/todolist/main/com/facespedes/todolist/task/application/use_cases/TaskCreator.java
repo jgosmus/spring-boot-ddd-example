@@ -7,6 +7,7 @@ import com.facespedes.todolist.task.domain.aggregate.Task;
 import com.facespedes.todolist.task.domain.ports.TaskRepository;
 import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
+import com.facespedes.todolist.user.domain.exceptions.UserNotFoundException;
 import com.facespedes.todolist.user.domain.ports.UserRepository;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import lombok.AllArgsConstructor;
@@ -23,7 +24,7 @@ public class TaskCreator {
     public void create(String id, String description, String userIdString) {
         UserId userId = new UserId(userIdString);
         new DomainUserFinder(userRepository).findUser(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
 
         TaskId taskId = new TaskId(id);
         TaskDescription taskDescription = new TaskDescription(description);
