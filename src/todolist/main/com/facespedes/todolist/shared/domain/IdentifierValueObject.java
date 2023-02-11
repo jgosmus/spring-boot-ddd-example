@@ -1,5 +1,6 @@
 package com.facespedes.todolist.shared.domain;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 
 import java.io.Serializable;
@@ -8,6 +9,7 @@ import java.util.UUID;
 
 @MappedSuperclass
 public abstract class IdentifierValueObject implements Serializable {
+    @Column(length = 36)
     protected final String id;
 
     protected IdentifierValueObject(String value) {

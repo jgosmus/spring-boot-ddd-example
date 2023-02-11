@@ -10,4 +10,5 @@ import lombok.Getter;
 public final class UserFinderResponse {
     private String id;
     private String email;
+    private long numberOfTasks;
 }
