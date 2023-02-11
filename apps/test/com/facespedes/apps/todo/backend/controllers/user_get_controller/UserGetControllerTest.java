@@ -19,7 +19,6 @@ class UserGetControllerTest extends AcceptanceTestCase {
         givenThereIsAUser(userId, email, password);
 
         assertRequest("GET", "/user/" + userId, 200);
-        fail();
     }
 
     @Test
