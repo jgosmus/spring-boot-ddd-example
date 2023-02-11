@@ -63,4 +63,8 @@ public class Task extends AggregateRoot {
         return status;
     }
 
+    public UserId getUserId() {
+        return userId;
+    }
+
 }

@@ -7,19 +7,19 @@ import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import com.facespedes.todolist.user.domain.aggregate.User;
 import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.ports.UserRepository;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 @Service
-public class UserFinder {
+public final class UserFinder {
 
-    private final DomainUserFinder domainUserFinder;
+    private final UserRepository userRepository;
 
-    public UserFinder(UserRepository userRepository) {
-        this.domainUserFinder = new DomainUserFinder(userRepository);
-    }
 
     public UserFinderResponse findUser(String id) {
         UserId userId = new UserId(id);
-        User user = domainUserFinder.findUser(userId).orElseThrow(() -> new UserNotFoundException("User not found"));
+        User user = new DomainUserFinder(userRepository).findUser(userId)
+                .orElseThrow(() -> new UserNotFoundException("User not found"));
         return new UserFinderResponse(user.getId().value(), user.getEmail(), user.getNumberOfTasks());
     }
 }
