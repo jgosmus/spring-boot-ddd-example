@@ -4,6 +4,6 @@ import com.facespedes.todolist.user.domain.aggregate.User;
 
 public class UserFinderResponseMother {
     public static UserFinderResponse fromUser(User user) {
-        return new UserFinderResponse(user.getId().value(), user.getEmail());
+        return new UserFinderResponse(user.getId().value(), user.getEmail(), user.getNumberOfTasks());
     }
 }
