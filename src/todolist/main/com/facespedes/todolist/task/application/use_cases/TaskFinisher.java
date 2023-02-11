@@ -16,6 +16,7 @@ public final class TaskFinisher {
     private final TaskRepository taskRepository;
     private final EventBus eventBus;
 
+
     public void finishTask(String id) {
         TaskId taskId = new TaskId(id);
         Task task = new DomainTaskFinder(taskRepository).findTask(taskId)

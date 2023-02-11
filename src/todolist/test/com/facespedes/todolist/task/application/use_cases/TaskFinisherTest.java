@@ -1,11 +1,13 @@
 package com.facespedes.todolist.task.application.use_cases;
 
 import com.facespedes.todolist.UnitTestCase;
+import com.facespedes.todolist.shared.domain.UuidMother;
 import com.facespedes.todolist.shared.domain.bus.event.DomainEvent;
 import com.facespedes.todolist.shared.domain.bus.event.EventBus;
 import com.facespedes.todolist.task.domain.TaskMother;
 import com.facespedes.todolist.task.domain.aggregate.Task;
 import com.facespedes.todolist.task.domain.events.TaskCompletedDomainEvent;
+import com.facespedes.todolist.task.domain.exceptions.TaskNotFoundException;
 import com.facespedes.todolist.task.domain.ports.TaskRepository;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -16,10 +18,11 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 class TaskFinisherTest extends UnitTestCase {
 
@@ -31,6 +34,7 @@ class TaskFinisherTest extends UnitTestCase {
 
     @InjectMocks
     private TaskFinisher taskFinisher;
+
 
     @Test
     void taskShouldBeDone_WhenFinishTask() {
@@ -46,7 +50,18 @@ class TaskFinisherTest extends UnitTestCase {
         checkIfEventIsPublished(argumentCaptor.getValue(), TaskCompletedDomainEvent.class);
     }
 
-    private static void checkIfEventIsPublished(List<DomainEvent> eventsToPublish, Class<? extends DomainEvent> eventClass) {
+    @Test
+    void shouldThrowException_WhenTaskNotExists() {
+        given(taskRepository.findById(any())).willReturn(Optional.empty());
+
+        assertThatThrownBy(() -> taskFinisher.finishTask(UuidMother.random()))
+                .isInstanceOf(TaskNotFoundException.class);
+
+        verify(taskRepository, never()).save(any());
+    }
+
+    private static void checkIfEventIsPublished(List<DomainEvent> eventsToPublish,
+                                                Class<? extends DomainEvent> eventClass) {
         assertThat(eventsToPublish.stream().anyMatch(eventClass::isInstance)).isTrue();
     }
 }
