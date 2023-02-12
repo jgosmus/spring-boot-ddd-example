@@ -10,6 +10,8 @@ import com.facespedes.todolist.task.domain.vo.TaskId;
 import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+
 @NoArgsConstructor
 @Table(name = "tasks")
 @Entity
@@ -30,6 +32,7 @@ public class Task extends AggregateRoot {
 
 
     public static Task create(TaskId id, TaskDescription description, UserId userId) {
+        Objects.requireNonNull(id);
         Task task = new Task();
         task.id = id;
         task.description = description;

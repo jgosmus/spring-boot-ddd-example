@@ -1,6 +1,6 @@
-package com.facespedes.apps.todo.backend.controllers.task_get_controller;
+package com.facespedes.apps.todolist.backend.controllers.task_get_controller;
 
-import com.facespedes.apps.todo.AcceptanceTestCase;
+import com.facespedes.apps.todolist.AcceptanceTestCase;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;

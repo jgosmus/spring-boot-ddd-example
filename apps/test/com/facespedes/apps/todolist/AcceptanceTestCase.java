@@ -1,4 +1,4 @@
-package com.facespedes.apps.todo;
+package com.facespedes.apps.todolist;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;

@@ -1,4 +1,4 @@
-package com.facespedes.apps.todo.backend.controllers.user_get_controller;
+package com.facespedes.apps.todolist.backend.controllers.user_get_controller;
 
 import com.facespedes.todolist.user.application.dto.UserFinderResponse;
 import com.facespedes.todolist.user.application.use_cases.UserFinder;

@@ -1,8 +1,6 @@
-package com.facespedes.apps.todo.backend.controllers;
+package com.facespedes.apps.todolist.backend.controllers;
 
 import com.facespedes.todolist.shared.domain.NotFoundException;
-import com.facespedes.todolist.user.domain.exceptions.UserNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
