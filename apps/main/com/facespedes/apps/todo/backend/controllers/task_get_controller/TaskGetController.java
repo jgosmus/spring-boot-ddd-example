@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-public class TaskGetController {
+public final class TaskGetController {
 
     private final TaskFinder taskFinder;
 
