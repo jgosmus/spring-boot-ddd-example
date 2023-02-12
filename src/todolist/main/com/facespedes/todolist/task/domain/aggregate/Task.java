@@ -7,25 +7,14 @@ import com.facespedes.todolist.task.domain.events.TaskCompletedDomainEvent;
 import com.facespedes.todolist.task.domain.events.TaskCreatedDomainEvent;
 import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
-import jakarta.persistence.*;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-@Table(name = "tasks")
-@Entity
 public class Task extends AggregateRoot {
 
-    @EmbeddedId
     private TaskId id;
-
-    @Embedded
     private TaskDescription description;
-
-    @Enumerated(value = EnumType.STRING)
     private TaskStatus status;
-
-    @Embedded
-    @AttributeOverride(name = "id", column = @Column(name = "user_id"))
     private UserId userId;
 
 

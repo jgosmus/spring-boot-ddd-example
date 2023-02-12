@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings xmlns="http://www.datanucleus.org/xsd/jpa/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.datanucleus.org/xsd/jpa/orm
+        http://www.datanucleus.org/xsd/jpa/orm_2_2.xsd" version="2.2">
+    <access>FIELD</access>
+    <entity class="com.facespedes.todolist.user.domain.aggregate.User">
+        <table name="users"/>
+        <attributes>
+            <embedded-id name="id"/>
+            <embedded name="email"/>
+            <embedded name="password"/>
+            <embedded name="numberOfTasks"/>
+        </attributes>
+    </entity>
+
+    <entity class="com.facespedes.todolist.task.domain.aggregate.Task">
+        <table name="tasks"/>
+        <attributes>
+            <embedded-id name="id"/>
+            <embedded name="description"/>
+            <basic name="status">
+                <column name="status"/>
+                <enumerated>STRING</enumerated>
+            </basic>
+            <embedded name="userId">
+                <attribute-override name="id">
+                    <column name="user_id"/>
+                </attribute-override>
+            </embedded>
+        </attributes>
+    </entity>
+</entity-mappings>

@@ -7,25 +7,14 @@ import com.facespedes.todolist.user.domain.events.UserCreatedDomainEvent;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
 import com.facespedes.todolist.user.domain.vo.UserNumberTasks;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
-import jakarta.persistence.*;
 
 import java.util.Objects;
 
-@Table(name = "users")
-@Entity
 public final class User extends AggregateRoot {
 
-    @Column(length = 36)
-    @EmbeddedId
     private UserId id;
-
-    @Embedded
     private UserEmail email;
-
-    @Embedded
     private UserPassword password;
-
-    @Embedded
     private UserNumberTasks numberOfTasks;
 
     public static User create(UserId id, UserEmail email, UserPassword password) {
@@ -55,7 +44,7 @@ public final class User extends AggregateRoot {
         return password.value();
     }
 
-    public long getNumberOfTasks() {
+    public Long getNumberOfTasks() {
         return numberOfTasks.value();
     }
 
