@@ -1,7 +1,6 @@
 package com.facespedes.apps.todo.backend.controllers.user_tasks_get_controller;
 
 import com.facespedes.todolist.user.application.dto.UserTasksFinderResponse;
-import com.facespedes.todolist.user.application.use_cases.UserFinder;
 import com.facespedes.todolist.user.application.use_cases.UserTasksFinder;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

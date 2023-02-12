@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.UUID;
-
 @AllArgsConstructor
 @RestController
 public final class TaskPostController {
@@ -17,9 +15,9 @@ public final class TaskPostController {
 
     @PostMapping("task")
     public void createTask(@RequestBody TaskPostRequest taskPostRequest) {
-        taskCreator.create(UUID.randomUUID().toString(), taskPostRequest.description(), taskPostRequest.userId());
+        taskCreator.create(taskPostRequest.id(), taskPostRequest.description(), taskPostRequest.userId());
     }
 }
 
-record TaskPostRequest(String description, String userId) {
+record TaskPostRequest(String id, String description, String userId) {
 }
