@@ -9,7 +9,6 @@ import com.facespedes.todolist.task.domain.events.TaskCreatedDomainEvent;
 import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
 import lombok.NoArgsConstructor;
-import java.util.Objects;
 
 @NoArgsConstructor
 public class Task extends AggregateRoot {

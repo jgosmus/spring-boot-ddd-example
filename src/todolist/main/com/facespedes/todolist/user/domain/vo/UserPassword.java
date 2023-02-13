@@ -5,12 +5,11 @@ import com.facespedes.todolist.shared.domain.StringValueObject;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.Objects;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class UserPassword extends StringValueObject {
 
     private String password;
+
 
     public UserPassword(String password) {
         Ensure.notNull(password, "Password is required");

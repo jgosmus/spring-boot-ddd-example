@@ -9,7 +9,6 @@ import com.facespedes.todolist.user.domain.vo.UserEmail;
 import com.facespedes.todolist.user.domain.vo.UserNumberTasks;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
 
-import java.util.Objects;
 
 public final class User extends AggregateRoot {
 
