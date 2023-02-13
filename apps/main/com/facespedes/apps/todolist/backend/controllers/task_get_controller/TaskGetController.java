@@ -1,4 +1,4 @@
-package com.facespedes.apps.todo.backend.controllers.task_get_controller;
+package com.facespedes.apps.todolist.backend.controllers.task_get_controller;
 
 import com.facespedes.todolist.task.application.dto.TaskFinderResponse;
 import com.facespedes.todolist.task.application.use_cases.TaskFinder;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @AllArgsConstructor
 @RestController
-public class TaskGetController {
+public final class TaskGetController {
 
     private final TaskFinder taskFinder;
 

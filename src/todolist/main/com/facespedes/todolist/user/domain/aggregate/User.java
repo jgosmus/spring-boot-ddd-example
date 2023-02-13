@@ -40,11 +40,7 @@ public final class User extends AggregateRoot {
         return email.value();
     }
 
-    public String getPassword() {
-        return password.value();
-    }
-
-    public Long getNumberOfTasks() {
+    public long getNumberOfTasks() {
         return numberOfTasks.value();
     }
 
@@ -56,7 +52,4 @@ public final class User extends AggregateRoot {
         this.numberOfTasks = new UserNumberTasks(this.numberOfTasks.value() - 1);
     }
 
-    public User() {
-        this.id = new UserId();
-    }
 }

@@ -1,4 +1,4 @@
-package com.facespedes.apps.todo.backend.controllers;
+package com.facespedes.apps.todolist.backend.controllers;
 
 import lombok.Builder;
 import lombok.Getter;

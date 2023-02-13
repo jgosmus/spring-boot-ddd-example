@@ -6,6 +6,6 @@ import com.github.javafaker.Faker;
 public class UserPasswordMother {
 
     public static UserPassword random() {
-        return new UserPassword(Faker.instance().internet().password());
+        return new UserPassword(Faker.instance().internet().password(8, 20));
     }
 }

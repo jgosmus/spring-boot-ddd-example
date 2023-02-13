@@ -1,4 +1,4 @@
-package com.facespedes.apps.todo.backend.controllers.health_check;
+package com.facespedes.apps.todolist.backend.controllers.health_check;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,11 +1,12 @@
 package com.facespedes.todolist.user.domain.vo;
 
 import com.facespedes.todolist.shared.domain.StringValueObject;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.util.regex.Pattern;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class UserEmail extends StringValueObject {
 
     private String email;

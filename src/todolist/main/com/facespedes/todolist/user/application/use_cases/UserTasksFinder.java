@@ -2,10 +2,10 @@ package com.facespedes.todolist.user.application.use_cases;
 
 import com.facespedes.todolist.shared.domain.Service;
 import com.facespedes.todolist.shared.domain.UserId;
+import com.facespedes.todolist.task.domain.aggregate.Task;
 import com.facespedes.todolist.task.domain.ports.TaskRepository;
 import com.facespedes.todolist.task.domain.services.DomainTaskFinder;
 import com.facespedes.todolist.user.application.dto.TaskResponse;
-import com.facespedes.todolist.user.application.dto.UserFinderResponse;
 import com.facespedes.todolist.user.application.dto.UserTasksFinderResponse;
 import com.facespedes.todolist.user.domain.aggregate.User;
 import com.facespedes.todolist.user.domain.exceptions.UserNotFoundException;
@@ -27,11 +27,13 @@ public final class UserTasksFinder {
         UserId userId = new UserId(id);
         User user = findUser(userId);
 
-        List<TaskResponse> tasksByUser = new DomainTaskFinder(taskRepository).findTasksByUser(userId).stream()
+        List<Task> userTasks = new DomainTaskFinder(taskRepository).findTasksByUser(userId);
+
+        List<TaskResponse> tasksResponses = userTasks.stream()
                 .map(task -> new TaskResponse(task.getId().value(), task.getDescription(), task.getStatus().name()))
                 .toList();
 
-        return new UserTasksFinderResponse(user.getId().value(), user.getEmail(), tasksByUser);
+        return new UserTasksFinderResponse(user.getId().value(), user.getEmail(), tasksResponses);
     }
 
     private User findUser(UserId userId) {

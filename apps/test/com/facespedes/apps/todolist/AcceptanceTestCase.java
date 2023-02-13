@@ -1,4 +1,4 @@
-package com.facespedes.apps.todo;
+package com.facespedes.apps.todolist;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.transaction.Transactional;
@@ -9,8 +9,11 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.ResultMatcher;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.request;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @Transactional
@@ -44,5 +47,18 @@ public abstract class AcceptanceTestCase {
                         .content(objectMapper.writeValueAsString(body)))
                 .andExpect(status().is(expectedStatusCode))
                 .andReturn();
+    }
+
+    protected void assertResponse(
+            String endpoint,
+            Integer expectedStatusCode,
+            Object expectedResponse) throws Exception {
+        ResultMatcher response = expectedResponse == null
+                ? content().string("")
+                : content().json(objectMapper.writeValueAsString(expectedResponse));
+
+        mockMvc.perform(get(endpoint))
+                .andExpect(status().is(expectedStatusCode))
+                .andExpect(response);
     }
 }

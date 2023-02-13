@@ -9,7 +9,10 @@ public final class UserNumberTasks extends NumberValueObject {
     private Long numberOfTasks;
 
     public UserNumberTasks(long numberOfTasks) {
-        this.numberOfTasks = numberOfTasks;
+        if(numberOfTasks < 0)
+            this.numberOfTasks = 0;
+        else
+            this.numberOfTasks = numberOfTasks;
     }
 
     public long value() {

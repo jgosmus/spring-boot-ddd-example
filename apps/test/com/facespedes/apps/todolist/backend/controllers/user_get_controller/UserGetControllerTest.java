@@ -1,12 +1,10 @@
-package com.facespedes.apps.todo.backend.controllers.user_get_controller;
+package com.facespedes.apps.todolist.backend.controllers.user_get_controller;
 
-import com.facespedes.apps.todo.AcceptanceTestCase;
+import com.facespedes.apps.todolist.AcceptanceTestCase;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 import java.util.UUID;
-
-import static org.junit.jupiter.api.Assertions.fail;
 
 class UserGetControllerTest extends AcceptanceTestCase {
 
@@ -14,7 +12,7 @@ class UserGetControllerTest extends AcceptanceTestCase {
     void shouldReturn200_WhenUserExists() throws Exception {
         String userId = UUID.randomUUID().toString();
         String email = "test@test.com";
-        String password = "test";
+        String password = "examplepassword";
 
         givenThereIsAUser(userId, email, password);
 
