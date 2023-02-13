@@ -1,5 +1,6 @@
 package com.facespedes.apps.todolist.backend.controllers;
 
+import com.facespedes.todolist.shared.domain.AlreadyExistsException;
 import com.facespedes.todolist.shared.domain.NotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -29,8 +30,8 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(IllegalArgumentException.class)
-    public CustomError handleTicketNotFoundException(IllegalArgumentException ex) {
+    @ExceptionHandler({IllegalArgumentException.class, AlreadyExistsException.class})
+    public CustomError handleTicketNotFoundException(Exception ex) {
         return generateError(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 

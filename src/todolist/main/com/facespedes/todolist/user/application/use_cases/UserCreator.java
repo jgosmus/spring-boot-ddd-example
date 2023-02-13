@@ -3,6 +3,7 @@ package com.facespedes.todolist.user.application.use_cases;
 import com.facespedes.todolist.shared.domain.Service;
 import com.facespedes.todolist.shared.domain.bus.event.EventBus;
 import com.facespedes.todolist.user.domain.aggregate.User;
+import com.facespedes.todolist.user.domain.exceptions.UserAlreadyExistsException;
 import com.facespedes.todolist.user.domain.ports.UserRepository;
 import com.facespedes.todolist.user.domain.services.DomainUserFinder;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
@@ -24,7 +25,7 @@ public class UserCreator {
         UserId userId = new UserId(id);
         Optional<User> optionalUser = new DomainUserFinder(userRepository).findUser(userId);
         optionalUser.ifPresent(user -> {
-            throw new RuntimeException("User already exists");
+            throw new UserAlreadyExistsException("User already exists");
         });
 
         UserEmail userEmail = new UserEmail(email);
