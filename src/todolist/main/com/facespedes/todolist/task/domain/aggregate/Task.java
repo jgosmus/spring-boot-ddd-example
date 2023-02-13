@@ -11,7 +11,6 @@ import com.facespedes.todolist.task.domain.vo.TaskId;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import java.util.Objects;
 
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
