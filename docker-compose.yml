@@ -19,6 +19,8 @@ services:
       - "8080:8080"
     networks:
       - ddd-example-network
+    environment:
+      - DB_URL=db
 volumes:
   db:
 networks:
