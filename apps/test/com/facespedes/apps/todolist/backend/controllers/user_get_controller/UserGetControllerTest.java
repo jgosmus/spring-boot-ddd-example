@@ -12,7 +12,7 @@ class UserGetControllerTest extends AcceptanceTestCase {
     void shouldReturn200_WhenUserExists() throws Exception {
         String userId = UUID.randomUUID().toString();
         String email = "test@test.com";
-        String password = "test";
+        String password = "examplepassword";
 
         givenThereIsAUser(userId, email, password);
 

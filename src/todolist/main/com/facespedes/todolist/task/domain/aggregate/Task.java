@@ -8,11 +8,12 @@ import com.facespedes.todolist.task.domain.events.TaskCreatedDomainEvent;
 import com.facespedes.todolist.task.domain.vo.TaskDescription;
 import com.facespedes.todolist.task.domain.vo.TaskId;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "tasks")
 @Entity
 public class Task extends AggregateRoot {
@@ -33,6 +34,8 @@ public class Task extends AggregateRoot {
 
     public static Task create(TaskId id, TaskDescription description, UserId userId) {
         Objects.requireNonNull(id);
+        Objects.requireNonNull(description);
+        Objects.requireNonNull(userId);
         Task task = new Task();
         task.id = id;
         task.description = description;

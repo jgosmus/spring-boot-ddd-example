@@ -34,7 +34,7 @@ class TaskGetControllerTest extends AcceptanceTestCase {
     }
 
     private void givenThereIsATask(String id, String description, String userId) throws Exception {
-        Map<String, Object> user = Map.of("id", userId, "email", "test@test.com", "password", "test");
+        Map<String, Object> user = Map.of("id", userId, "email", "test@test.com", "password", "examplepassword");
         Map<String, Object> task = Map.of("id", id, "description", description, "userId", userId);
 
         assertRequestWithBody("POST", "/user", user, 201);

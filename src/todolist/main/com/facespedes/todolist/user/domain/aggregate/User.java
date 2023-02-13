@@ -8,9 +8,12 @@ import com.facespedes.todolist.user.domain.vo.UserEmail;
 import com.facespedes.todolist.user.domain.vo.UserNumberTasks;
 import com.facespedes.todolist.user.domain.vo.UserPassword;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "users")
 @Entity
 public final class User extends AggregateRoot {
@@ -51,10 +54,6 @@ public final class User extends AggregateRoot {
         return email.value();
     }
 
-    public String getPassword() {
-        return password.value();
-    }
-
     public long getNumberOfTasks() {
         return numberOfTasks.value();
     }
@@ -67,7 +66,4 @@ public final class User extends AggregateRoot {
         this.numberOfTasks = new UserNumberTasks(this.numberOfTasks.value() - 1);
     }
 
-    public User() {
-        this.id = new UserId();
-    }
 }
