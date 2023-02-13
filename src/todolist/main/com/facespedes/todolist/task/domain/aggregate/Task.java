@@ -1,6 +1,7 @@
 package com.facespedes.todolist.task.domain.aggregate;
 
 import com.facespedes.todolist.shared.domain.AggregateRoot;
+import com.facespedes.todolist.shared.domain.Ensure;
 import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.task.domain.enums.TaskStatus;
 import com.facespedes.todolist.task.domain.events.TaskCompletedDomainEvent;
@@ -33,9 +34,9 @@ public class Task extends AggregateRoot {
 
 
     public static Task create(TaskId id, TaskDescription description, UserId userId) {
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(description);
-        Objects.requireNonNull(userId);
+        Ensure.notNull(id, "Id is required");
+        Ensure.notNull(description, "Description is required");
+        Ensure.notNull(userId, "UserId is required");
         Task task = new Task();
         task.id = id;
         task.description = description;

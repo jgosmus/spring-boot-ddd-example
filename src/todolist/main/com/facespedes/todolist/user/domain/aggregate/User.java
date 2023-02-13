@@ -2,6 +2,7 @@ package com.facespedes.todolist.user.domain.aggregate;
 
 
 import com.facespedes.todolist.shared.domain.AggregateRoot;
+import com.facespedes.todolist.shared.domain.Ensure;
 import com.facespedes.todolist.shared.domain.UserId;
 import com.facespedes.todolist.user.domain.events.UserCreatedDomainEvent;
 import com.facespedes.todolist.user.domain.vo.UserEmail;
@@ -32,9 +33,9 @@ public final class User extends AggregateRoot {
     private UserNumberTasks numberOfTasks;
 
     public static User create(UserId id, UserEmail email, UserPassword password) {
-        Objects.requireNonNull(id);
-        Objects.requireNonNull(email);
-        Objects.requireNonNull(password);
+        Ensure.notNull(id, "Id is required");
+        Ensure.notNull(email, "Email is required");
+        Ensure.notNull(password, "Password is required");
         User user = new User();
         user.id = id;
         user.email = email;
