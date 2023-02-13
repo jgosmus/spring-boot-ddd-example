@@ -10,6 +10,8 @@ services:
       - '3306:3306'
     networks:
       - ddd-example-network
+    volumes:
+      - dbvolume:/var/lib/mysql
   backend:
     restart: unless-stopped
     depends_on:
@@ -22,6 +24,6 @@ services:
     environment:
       - DB_URL=db
 volumes:
-  db:
+  dbvolume:
 networks:
   ddd-example-network:
