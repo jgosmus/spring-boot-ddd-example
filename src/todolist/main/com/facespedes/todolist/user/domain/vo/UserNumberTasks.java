@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public final class UserNumberTasks extends NumberValueObject {
 
-    private Long numberOfTasks;
+    private long numberOfTasks;
 
     public UserNumberTasks(long numberOfTasks) {
         if(numberOfTasks < 0)
